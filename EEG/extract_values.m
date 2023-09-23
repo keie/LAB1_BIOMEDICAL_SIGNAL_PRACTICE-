@@ -13,7 +13,7 @@ function info = extract_values(infoFileName)
     info.SamplingInterval = C{2};
     % read the lines which contain Gain y Base para cada señal
     info.Signals = struct();
-    for i = 1:6
+    for i = 1:22
         line = fgetl(fid);
         C = textscan(line, '%d %s %f %f %s', 'Delimiter', '\t');
         signalName = C{2}{1};
@@ -24,4 +24,3 @@ function info = extract_values(infoFileName)
     
     fclose(fid);
 end
-
