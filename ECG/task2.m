@@ -2,18 +2,6 @@ load('r01_edfm.mat')
 
 info = extract_values('r01_edfm.info')
 
-gain = info.Signals(1).Gain;
-base = info.Signals(1).Base;
-
-direct_1 = info.Signals(1).Name
-abdm_1 = info.Signals(2).Name
-abdm_2 = info.Signals(3).Name
-abdm_3 = info.Signals(4).Name
-abdm_4 = info.Signals(5).Name
-edf = info.Signals(6).Name
-
-title_matriz = [direct_1,abdm_1,abdm_2,abdm_3,abdm_4,edf]
-
 sample_interval = info.SamplingInterval; % ms
 sample_rate = info.SamplingFrequency; % Hz
 
@@ -38,8 +26,8 @@ for i=1:6
 figure(2)
 sgtitle("ECG-FFT")
 
-n_amplitude = "Normalized Amplitude [a.u.]"
-t_frecuency = "Frequency [Hz]"
+n_amplitude = "Norm Amp [a.u.]"
+t_frecuency = "Freq [Hz]"
 
 
 for i=1:6
