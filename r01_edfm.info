@@ -1,0 +1,41 @@
+Source: record adfecgdb/r01.edf  Start: [00:00:00.018 01/01/2011]
+val has 6 rows (signals) and 60000 columns (samples/signal)
+Duration:     0:00
+Sampling frequency: 1000 Hz  Sampling interval: 0.001 sec
+Row	Signal	    Gain	       Base Units
+1	Direct_1	9.99984741211	-1	uV
+2	Abdomen_1	9.99984741211	-1	uV
+3	Abdomen_2	9.99984741211	-1	uV
+4	Abdomen_3	9.99984741211	-1	uV
+5	Abdomen_4	9.99984741211	-1	uV
+6	EDF Annotations	65535	-32768	nd % no dimanesion
+
+To convert from raw units to the physical units shown
+above, call the 'rdmat.m' function from the wfdb-matlab
+toolbox: https://physionet.org/physiotools/matlab/wfdb-app-matlab/
+
+
+//notes
+
+#source mean that the source of data come from of file named adfecgdb/r01.edf
+in the group of data "adfecgdb", the record started on january 1 
+at 00:00:00.018
+
+#there are 6 different signals in the files and each signal have 60,000
+samples 
+
+#the frecuency of the sample is about 1000 Hz, it means that it takes one 
+sample of each 0.001 second
+
+# Rows (Signal,Gain,Base Units)
+Direct_1 is the first signal with a gain of 9.99984741211 and It is measured
+with Uv
+
+Abdomen_1...Abdomen_n
+
+additional signals of abdomen measured in Uv
+
+#EDF (European Data Format)
+
+values from 0 to 65535 with a base value of -32768 this signal does not have
+physic dimentions
