@@ -26,22 +26,12 @@ titleText = ['ECG, Sampling Freq: ', num2str(sample_rate), ' Hz, Sampling Interv
 sgtitle(titleText);
 
 for i=1:6
-    if i ~= 6
-        subplot(6, 1, i)
-        plot(val(i,:)./gain - base) 
-        xlabel(time_unit)
-        ylabel(unit_e)
-        title(title_matriz(i))
-    else
-        gain = info.Signals(i).Gain;
-        base = info.Signals(i).Base;
-        subplot(6, 1, i)
-        plot(val(i,:)./gain - base)
-        title(edf)
-        xlabel(time_unit)
-        ylabel("Annotation (nd)")
-    end
-end
+    subplot(6, 1, i)
+    plot(val(i,:)./info.Signals(i).Gain - info.Signals(i).Base) 
+    xlabel(time_unit)
+    ylabel(unit_e)
+    title(info.Signals(i).Name)
+ end
 
 
 %% Fourier
@@ -53,21 +43,11 @@ t_frecuency = "Frequency [Hz]"
 
 
 for i=1:6
-    if i ~= 6
-        subplot(6, 1, i)
-        [freq, one_s] = good_fft(val(i,:),sample_interval,sample_rate);
-        plot(freq, one_s)
-        ylabel(n_amplitude);
-        xlabel(t_frecuency);
-        xlim ([0, 200])
-        title(title_matriz(i))
-    else
-        subplot(6, 1, i)
-        [freq, one_s] = good_fft(val(i,:),sample_interval,sample_rate);
-        plot(freq, one_s)
-        title(edf)
-        ylabel(n_amplitude);
-        xlabel(t_frecuency);
-        xlim ([0, 200])
-    end
-end
+    subplot(6, 1, i)
+    [freq, one_s] = good_fft(val(i,:),sample_interval,sample_rate);
+    plot(freq, one_s)
+    ylabel(n_amplitude);
+    xlabel(t_frecuency);
+    xlim ([0, 200])
+    title(info.Signals(i).Name)
+ end

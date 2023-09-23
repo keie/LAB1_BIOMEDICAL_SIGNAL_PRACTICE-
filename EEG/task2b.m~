@@ -59,9 +59,9 @@ for i=1:6
         subplot(6, 1, i)
         [freq, one_s] = good_fft(val(i,:),sample_interval,sample_rate);
         plot(freq, one_s)
-        title(edf)
+        title(info.Signals(i).Name)
         ylabel(n_amplitude);
         xlabel(t_frecuency);
         xlim ([0, 200])
-    end
+    
 end

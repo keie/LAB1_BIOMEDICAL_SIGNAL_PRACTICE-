@@ -1,8 +1,6 @@
-load('fetal_PCG_p01_GW_36m.mat')
+load('emg_healthym.mat')
 
-info = extract_values('fetal_PCG_p01_GW_36m.info');
-
-
+info = extract_values('emg_healthym.info');
 
 sample_interval = info.SamplingInterval; % ms
 sample_rate = info.SamplingFrequency; % Hz
@@ -15,7 +13,7 @@ set(gcf, 'Position', [100, 100, 1000, 800])  % [left, bottom, width, height]
 
 font_size = 8;  
 
-titleText = ['PCG, Sampling Freq: ', num2str(sample_rate), ' Hz, Sampling Interval: ', num2str(sample_interval), ' sec'];
+titleText = ['EMG, Sampling Freq: ', num2str(sample_rate), ' Hz, Sampling Interval: ', num2str(sample_interval), ' sec'];
 sgtitle(titleText);
 
 for i = 1:1
@@ -29,7 +27,7 @@ end
 
 %% Fourier
 figure(2)
-sgtitle("PCG-FFT")
+sgtitle("EMG-FFT")
 
 n_amplitude = "Norm Amp [a.u.]"
 t_frecuency = "Freq [Hz]"
