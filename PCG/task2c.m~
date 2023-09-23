@@ -1,6 +1,8 @@
-load('Subject00_1_edfm.mat')
+load('fetal_PCG_p01_GW_36m.mat')
 
-info = extract_values('Subject00_1_edfm.info');
+info = extract_values('fetal_PCG_p01_GW_36m.info');
+
+
 
 sample_interval = info.SamplingInterval; % ms
 sample_rate = info.SamplingFrequency; % Hz
@@ -35,23 +37,4 @@ for i = 1:22
         ylabel(unit_e3, 'FontSize', font_size)  
     end
     
-end
-
-
-%% Fourier
-figure(2)
-sgtitle("EEG-FFT")
-
-n_amplitude = "Norm Amp [a.u.]"
-t_frecuency = "Freq [Hz]"
-
-
-for i=1:22
-    subplot(22, 1, i)
-    [freq, one_s] = good_fft(val(i,:),sample_interval,sample_rate);
-    plot(freq, one_s)
-    title(info.Signals(i).Name)
-    ylabel(n_amplitude);
-    xlabel(t_frecuency);
-    xlim ([0, 200])
 end
